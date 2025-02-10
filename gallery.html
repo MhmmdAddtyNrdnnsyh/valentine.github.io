@@ -4,113 +4,186 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-        <title>Sweet</title>
-        <link rel="stylesheet" href="css/index.css" />
-        <link href="css/bootstrap.css" rel="stylesheet" />
+        <title>Our Sweet Moments</title>
+        <link rel="stylesheet" href="css/bootstrap.css" />
         <link rel="stylesheet" href="fontawesome/css/all.css" />
         <script src="js/bootstrap.bundle.js"></script>
         <style>
-            body{
-              padding: 15px;
-              #F0F8FF
+            body {
+                background-color: #fdf2f8; /* Soft pink background */
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                padding: 15px;
             }
-               .top-bar {
-                 position: sticky;
-                 top: 0;
-                 z-index: 1000;
-                 background: white;
-             }
-             .search-bar {
-                 border-radius: 24px;
-                 background: #f1f3f4;
-             }
-             .photos-grid {
-                 display: grid;
-                 grid-template-columns: repeat(3, 1fr);
-                 gap: 2px;
-                 padding: 2px;
-             }
-             .photo-card {
-                 position: relative;
-                 padding-bottom: 100%;
-                 overflow: hidden;
-             }
-             .photo-card img {
-                 position: absolute;
-                 width: 100%;
-                 height: 100%;
-                 object-fit: cover;
-             }
 
-             img {
-               border-radius: 5px;
-             }
+            .top-bar {
+                position: sticky;
+                top: 0;
+                z-index: 1000;
+                background: rgba(255, 255, 255, 0.95);
+                backdrop-filter: blur(10px);
+                box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            }
+
+            h1 {
+                color: #db2777;
+                font-size: 2.5rem;
+                font-weight: bold;
+                text-align: center;
+                margin: 20px 0;
+                font-family: 'Playfair Display', serif;
+            }
+
+            .date-header {
+                background: linear-gradient(45deg, #ffb6c1, #ffc0cb);
+                color: #fff;
+                padding: 15px;
+                border-radius: 15px;
+                margin: 20px 0;
+                text-align: center;
+                font-size: 1.2rem;
+                box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            }
+
+            .photos-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+                gap: 20px;
+                padding: 20px;
+            }
+
+            .photo-card {
+                position: relative;
+                padding-bottom: 100%;
+                border-radius: 15px;
+                overflow: hidden;
+                box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+            }
+
+            .photo-card:hover {
+                transform: translateY(-5px) scale(1.02);
+                box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+            }
+
+            .photo-card img {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                border-radius: 15px;
+                transition: filter 0.3s ease;
+            }
+
+            .photo-card::after {
+                content: '❤️';
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                font-size: 2rem;
+                opacity: 0;
+                transition: opacity 0.3s ease;
+            }
+
+            .photo-card:hover img {
+                filter: brightness(0.8);
+            }
+
+            .photo-card:hover::after {
+                opacity: 1;
+            }
+
+            @media (max-width: 768px) {
+                .photos-grid {
+                    grid-template-columns: repeat(2, 1fr);
+                    gap: 10px;
+                    padding: 10px;
+                }
+
+                h1 {
+                    font-size: 2rem;
+                }
+            }
+
+            /* Add decorative elements */
+            .heart-decoration {
+                position: fixed;
+                font-size: 2rem;
+                opacity: 0.1;
+                pointer-events: none;
+                z-index: -1;
+            }
+
+            .heart-1 { top: 10%; left: 5%; }
+            .heart-2 { top: 30%; right: 8%; }
+            .heart-3 { bottom: 15%; left: 7%; }
+            .heart-4 { bottom: 25%; right: 6%; }
         </style>
     </head>
     <body>
-        <div class="top-bar p-2 border-bottom">
-            <div class="d-flex align-items-center">
-                <div class="d-flex align-items-center flex-grow-1">
-                    <h1 class="me-2">Our Gallery</h1>
-                </div>
-            </div>
+        <!-- Decorative hearts -->
+        <div class="heart-decoration heart-1">❤️</div>
+        <div class="heart-decoration heart-2">❤️</div>
+        <div class="heart-decoration heart-3">❤️</div>
+        <div class="heart-decoration heart-4">❤️</div>
+
+        <div class="top-bar p-3 border-bottom">
+            <h1>Our Sweet Moments Together ❤️</h1>
         </div>
 
-        <!-- Date Header -->
-        <div class="p-2 bg-light">
-            <strong>Sweet bangett yaa😖</strong>
+        <div class="date-header">
+            <span>💑 Sweet Memories Forever 💑</span>
         </div>
 
         <!-- Photos Grid -->
         <div class="photos-grid">
             <div class="photo-card">
-                <img src="src/IMG-20250131-WA0065.jpg" alt="Photo 1" />
+                <img src="src/IMG-20250131-WA0065.jpg" alt="Sweet Moment 1" />
             </div>
             <div class="photo-card">
-                <img src="src/IMG-20250131-WA0063.jpg" alt="Photo 2" />
+                <img src="src/IMG-20250131-WA0063.jpg" alt="Sweet Moment 2" />
             </div>
             <div class="photo-card">
-                <img src="src/IMG_20250131_113720.jpg" alt="Photo 3" />
+                <img src="src/IMG_20250131_113720.jpg" alt="Sweet Moment 3" />
             </div>
             <div class="photo-card">
-                <img src="src/IMG_20250131_113702.jpg" alt="Photo 4" />
+                <img src="src/IMG_20250131_113702.jpg" alt="Sweet Moment 4" />
             </div>
             <div class="photo-card">
-                <img src="src/IMG_20250131_113610.jpg" alt="Photo 5" />
+                <img src="src/IMG_20250131_113610.jpg" alt="Sweet Moment 5" />
             </div>
             <div class="photo-card">
-                <img src="src/IMG_20250128_223144.jpg" alt="Photo 6" />
+                <img src="src/IMG_20250128_223144.jpg" alt="Sweet Moment 6" />
             </div>
             <div class="photo-card">
-                <img src="src/IMG_20250128_223044.jpg" alt="Photo 7" />
+                <img src="src/IMG_20250128_223044.jpg" alt="Sweet Moment 7" />
             </div>
             <div class="photo-card">
-                <img src="src/IMG_20250128_223031.jpg" alt="Photo 8" />
+                <img src="src/IMG_20250128_223031.jpg" alt="Sweet Moment 8" />
             </div>
             <div class="photo-card">
-                <img src="src/IMG_20250128_222911.jpg" alt="Photo 9" />
+                <img src="src/IMG_20250128_222911.jpg" alt="Sweet Moment 9" />
             </div>
             <div class="photo-card">
-                <img src="src/IMG_20250128_222640.jpg" alt="Photo 9" />
+                <img src="src/IMG_20250128_222640.jpg" alt="Sweet Moment 10" />
             </div>
             <div class="photo-card">
-                <img src="src/IMG_20241129_223946.jpg" alt="Photo 9" />
+                <img src="src/IMG_20241129_223946.jpg" alt="Sweet Moment 11" />
             </div>
             <div class="photo-card">
-                <img src="src/IMG_20241129_223613.jpg" alt="Photo 9" />
+                <img src="src/IMG_20241129_223613.jpg" alt="Sweet Moment 12" />
             </div>
             <div class="photo-card">
-                <img src="src/IMG_20241129_223541.jpg" alt="Photo 9" />
+                <img src="src/IMG_20241129_223541.jpg" alt="Sweet Moment 13" />
             </div>
             <div class="photo-card">
-                <img src="src/IMG_20241129_223412.jpg" alt="Photo 9" />
+                <img src="src/IMG_20241129_223412.jpg" alt="Sweet Moment 14" />
             </div>
             <div class="photo-card">
-                <img src="src/IMG_20241129_223252.jpg" alt="Photo 9" />
+                <img src="src/IMG_20241129_223252.jpg" alt="Sweet Moment 15" />
             </div>
         </div>
 
-        <!-- Bootstrap Bundle JS -->
         <script src="js/bootstrap.bundle.js"></script>
     </body>
 </html>
