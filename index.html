@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>MeylindaLopee</title>
+        <link rel="stylesheet" href="css/index.css" />
+        <link href="css/bootstrap.css" rel="stylesheet" />
+        <link rel="stylesheet" href="fontawesome/css/all.css" />
+        <script src="js/bootstrap.bundle.js"></script>
+        <style>
+            body {
+                background-image: url("/src/Proyek Baru 1 [3CCD097].png");
+                background-size: 115%;
+                background-repeat: no-repeat;
+            }
+            .ingat {
+                position: absolute;
+                top: 10px;
+                left: 10px;
+                right: 10px;
+                width: 95%;
+            }
+            .calculator {
+                position: relative;
+                top: 130px;
+                max-width: 300px;
+                margin: 30px auto;
+                background-color: #f0f8ff;
+                border-radius: 15px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                padding: 15px;
+                text-align: center;
+            }
+
+            .display {
+                background-color: white;
+                padding: 15px;
+                text-align: center;
+                font-size: 24px;
+                border-radius: 15px;
+                border: 1px solid #e9ecef;
+                min-height: 50px;
+                font-weight: bold;
+                letter-spacing: 3px;
+            }
+
+            .buttons {
+                margin-top: 10px;
+            }
+
+            .btn-calc {
+                width: 60px;
+                height: 60px;
+                margin: 5px;
+                border-radius: 10px;
+                font-size: 20px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border: none;
+                transition: all 0.2s;
+            }
+
+            .btn-number {
+                background-color: skyblue;
+                color: #333;
+            }
+
+            .btn-number:hover {
+                background-color: lightskyblue;
+            }
+
+            .btn-delete {
+                background-color: red;
+                color: white;
+            }
+
+            .btn-delete:hover {
+                background-color: darkred;
+            }
+
+            .btn-submit {
+                background-color: #0d6efd;
+                color: white;
+            }
+
+            .btn-submit:hover {
+                background-color: #0b5ed7;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="calculator">
+            <h3>PIN (dd/mm/yyyy)</h3>
+            <div class="display">0</div>
+            <div class="buttons">
+                <div class="d-flex justify-content-center mb-2">
+                    <button class="btn-calc btn-number">1</button>
+                    <button class="btn-calc btn-number">2</button>
+                    <button class="btn-calc btn-number">3</button>
+                </div>
+                <div class="d-flex justify-content-center mb-2">
+                    <button class="btn-calc btn-number">4</button>
+                    <button class="btn-calc btn-number">5</button>
+                    <button class="btn-calc btn-number">6</button>
+                </div>
+                <div class="d-flex justify-content-center mb-2">
+                    <button class="btn-calc btn-number">7</button>
+                    <button class="btn-calc btn-number">8</button>
+                    <button class="btn-calc btn-number">9</button>
+                </div>
+                <div class="d-flex justify-content-center mb-2">
+                    <button
+                        class="btn-calc btn-delete fa-solid fa-delete-left"
+                    ></button>
+                    <button class="btn-calc btn-number">0</button>
+                    <button
+                        class="btn-calc btn-submit fa-solid fa-right-from-bracket"
+                    ></button>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            const display = document.querySelector(".display");
+            const buttons = document.querySelectorAll(".btn-number");
+            const deleteButton = document.querySelector(".btn-delete");
+            const submitButton = document.querySelector(".btn-submit");
+
+            let pin = "";
+
+            correctPin = "06102024";
+            // Fungsi untuk memasukkan angka ke PIN
+            buttons.forEach(button => {
+                button.addEventListener("click", () => {
+                    let newValue = button.textContent;
+
+                    // Maksimal 6 digit PIN
+                    if (pin.length < 8) {
+                        pin += newValue;
+                        display.textContent = pin;
+                    }
+                });
+            });
+
+            // Fungsi untuk menghapus angka satu per satu
+            deleteButton.addEventListener("click", () => {
+                pin = pin.slice(0, -1); // Hapus karakter terakhir
+                display.textContent = pin.length > 0 ? pin : "0"; // Jika kosong, kembali ke "0"
+            });
+
+            // Fungsi untuk mengirim PIN
+            submitButton.addEventListener("click", () => {
+                if (pin.length === 8) {
+                    if (pin == correctPin) {
+                        window.location.href = "index2.html";
+                    } else {
+                        alert("TANGGAL JADIAN KITAA SAYANGG \u{1F621}");
+                    }
+                    // Kirim PIN ke server atau lanjutkan proses login
+                } else {
+                    alert("Harus Lengkap Sayangg Tanggalnyaa");
+                }
+            });
+        </script>
+    </body>
+</html>
