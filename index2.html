@@ -11,6 +11,7 @@
                 background-color: #f0f8ff;
                 min-height: 100vh;
                 margin: 0;
+                overflow: hidden; /* Untuk menghindari scrollbar */
             }
 
             .time {
@@ -158,6 +159,21 @@
             .button-container {
                 text-align: center;
             }
+
+            /* CSS untuk efek hujan love */
+            .love-rain {
+                position: absolute;
+                top: -50px;
+                animation: fall linear infinite;
+                color: lightskyblue;
+                font-size: 24px;
+            }
+
+            @keyframes fall {
+                to {
+                    transform: translateY(100vh);
+                }
+            }
         </style>
     </head>
     <body>
@@ -293,6 +309,22 @@
                     flap.style.transform = "rotateX(0deg)";
                 }
             }
+
+            // Script untuk efek hujan love
+            function createLove() {
+                const love = document.createElement("div");
+                love.innerHTML = "💙";
+                love.classList.add("love-rain");
+                love.style.left = Math.random() * 100 + "vw";
+                love.style.animationDuration = Math.random() * 2 + 3 + "s";
+                document.body.appendChild(love);
+
+                setTimeout(() => {
+                    love.remove();
+                }, 5000);
+            }
+
+            setInterval(createLove, 300);
         </script>
     </body>
 </html>
